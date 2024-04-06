@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useAuth } from './useAuth';
+import { toast } from 'react-toastify'
 
 const CartContext = createContext(null);
 const cart_key = 'cart';
@@ -51,6 +52,7 @@ export default function Provider({ children }) {
     const removeitem = foodId => {
         const filteredcart = cartItems.filter(item => item.food.id !== foodId);
         setCartItems(filteredcart);
+        toast.success("Removed from cart");
     };
 
     const changequant = (cartItem, newquant) => {
@@ -64,6 +66,7 @@ export default function Provider({ children }) {
         const updatedItems = cartItems.map(item => (item.food.id === cartItem.food.id ? changes : item));
 
         setCartItems(updatedItems);
+        toast.success("Cart Updated")
     };
 
     const addmore = food => {
@@ -71,6 +74,7 @@ export default function Provider({ children }) {
         if (cartItem) {
             changequant(cartItem, cartItem.quantity + 1);
         } else {
+            toast.success("Added to cart");
             setCartItems([...cartItems, { food, quantity: 1, price: food.price }]);
         }
     };

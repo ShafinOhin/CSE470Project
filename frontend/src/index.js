@@ -7,6 +7,8 @@ import { BrowserRouter } from 'react-router-dom';
 import CartProvider from './Hooks/useCart';
 import './axiosConfig';
 import { AuthProvider } from './Hooks/useAuth';
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -15,6 +17,18 @@ root.render(
       <AuthProvider>
         <CartProvider>
           <App />
+          <ToastContainer
+              position="bottom-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+            />
         </CartProvider>
       </AuthProvider>
     </BrowserRouter>
