@@ -1,6 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useAuth } from './useAuth';
 import { toast } from 'react-toastify'
+import { Link } from 'react-router-dom';
 
 const CartContext = createContext(null);
 const cart_key = 'cart';
@@ -74,7 +75,7 @@ export default function Provider({ children }) {
         if (cartItem) {
             changequant(cartItem, cartItem.quantity + 1);
         } else {
-            toast.success("Added to cart");
+            toast.success(<Link to='/cart'>Added to cart</Link>);
             setCartItems([...cartItems, { food, quantity: 1, price: food.price }]);
         }
     };

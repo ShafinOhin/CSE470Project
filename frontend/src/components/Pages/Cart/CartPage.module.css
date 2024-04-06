@@ -37,6 +37,7 @@
     height: 1.2rem;
     font-family: monospace;
     transition: background-color 0.3s ease; 
+    line-height: 0px;
   }
 
   .rembut:hover{
