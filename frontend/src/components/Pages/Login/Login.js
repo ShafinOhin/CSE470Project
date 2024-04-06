@@ -53,7 +53,7 @@ export default function Login() {
             error={errors.password}
             />
 
-            <button type="submit" className={classes.submt}>
+            <button type="submit" className={classes.submit}>
             Submit
             </button>
             </form>

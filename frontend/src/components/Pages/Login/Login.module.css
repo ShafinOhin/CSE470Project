@@ -40,7 +40,7 @@ h1 {
     margin-top: 5px;
 }
 
-.submt {
+.submit {
   font-family: monospace;
   border: none;
   outline: none;
@@ -52,9 +52,10 @@ h1 {
   color: purple;
   background-color: #f0f0f0;
   transition: background-color 0.3s ease;
+  line-height: 0px;
 }
 
-.submt:hover {
+.submit:hover {
     cursor: pointer;
     color: #f0f0f0;
     background-color: purple;
