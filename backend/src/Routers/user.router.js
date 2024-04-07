@@ -38,6 +38,40 @@ router.post('/register', handler (async (req, res) => {
 
 }));
 
+router.put(
+    '/callwaiter',
+    handler (async (req, res) => {
+        const {user}  = req.body;
+        const userobject = await UserModel.findById(user.id);
+        userobject.isCalling = true;
+        await userobject.save();
+        res.send({notified: true});
+    })
+)
+
+router.put(
+    '/answercaller',
+    handler (async (req, res) => {
+        const {user}  = req.body;
+        const userobject = await UserModel.findById(user.id);
+        userobject.isCalling = false;
+        await userobject.save();
+        res.send({answered: true});
+    })
+)
+
+router.get(
+    '/getpendingcallers',
+    handler (async (req, res) => {
+        const filter = {
+            isCalling: true,
+        }
+        const userobjects = await UserModel.find(filter);
+        
+        res.send(userobjects);
+    })
+)
+
 const generate = user => {
     const token = tkn.sign ({
         id: user.id, employee: user.employee, admin: user.admin

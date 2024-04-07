@@ -20,7 +20,8 @@ export default function Header() {
               <Link to='/'>{user.name}</Link>
               {user.admin && <Link to='/admin'>Admin</Link>}
               <Link onClick={logout}>Logout</Link>
-              <button>Call Waiter</button>
+              <Link to="/track">Track Order</Link>
+              <Link to="/callwaiter">Call For Waiter</Link>
             </div>
           </ul> )
           : (<Link to='/login'>Login</Link>

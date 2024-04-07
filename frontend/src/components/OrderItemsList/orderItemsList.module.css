@@ -4,6 +4,7 @@
   margin-top: 1rem;
   border-radius: 5px;
   padding: 0.5rem 1rem;
+  display: flex;
 }
 
 .table td {
@@ -21,6 +22,8 @@
   margin-left: 0.3rem;
   color: grey;
 }
+
+
 .table a:hover {
   opacity: 0.9;
 }

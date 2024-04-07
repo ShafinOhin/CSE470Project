@@ -80,8 +80,17 @@ export default function Provider({ children }) {
         }
     };
 
+    
+    const clearCart = () => {
+        localStorage.removeItem(cart_key + user.id);
+        const { items, totalPrice, totalCount } = empty_cart;
+        setCartItems(items);
+        setTotalPrice(totalPrice);
+        setTotalCount(totalCount);
+    };
+
     return (
-        <CartContext.Provider value={{ cart: { items: cartItems, totalPrice, totalCount }, removeitem, changequant, addmore }}>
+        <CartContext.Provider value={{ cart: { items: cartItems, totalPrice, totalCount }, removeitem, changequant, addmore, clearCart }}>
             {children}
         </CartContext.Provider>
     );

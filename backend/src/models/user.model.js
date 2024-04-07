@@ -6,6 +6,7 @@ export const UserSchema = new Schema(
         employee: {type: String, required: true, unique: true},
         password: {type: String, required: true},
         admin: {type: Boolean, default: false},
+        isCalling: {type: Boolean, default: false}
     },
     {
         timestamps: true,

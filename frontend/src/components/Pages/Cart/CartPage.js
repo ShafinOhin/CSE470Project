@@ -6,6 +6,12 @@ import { Link } from 'react-router-dom';
 
 export default function CartPage() {
     const {cart, removeitem, changequant} =useCart();
+    if(cart.items.length === 0) {
+        return (<div className={classes.container}>
+            <h1>Cart is Empty</h1>
+        </div>);
+        
+    }
   return (
     <>
         {cart && cart.items.length > 0 && (

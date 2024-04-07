@@ -1,36 +1,19 @@
 import { Router } from "express";
 import multer from "multer";
-import handler from 'express-async-handler';
-import { configCloudinary } from "../config/cloudinary.config.js";
+import path from "path";
 
 const router = Router();
-const upload = multer();
+const upload = multer({ dest: 'foods/' }); 
 
-router.post('/', upload.single('image'),
-handler(async(req, res) => {
+router.post('/', upload.single('image'), (req, res) => {
     const file = req.file;
     if (!file) {
-        return;
+        return res.status(400).send({ error: 'No file uploaded' });
     }
 
-    const imageUrl = await uploadImageToCloudinary(file?.buffer);
-    res.send({image: imageUrl});
-})
-);
+    const imagePath = path.join('..', 'uploads', file.originalname); // Construct the image path
+    // Send the image path as the response
+    res.send({ image: imagePath });
+});
 
-const uploadImageToCloudinary = imageBuffer => {
-    const cloudinary = configCloudinary();
-  
-    return new Promise((resolve, reject) => {
-      if (!imageBuffer) reject(null);
-  
-      cloudinary.uploader
-        .upload_stream((error, result) => {
-          if (error || !result) reject(error);
-          else resolve(result.url);
-        })
-        .end(imageBuffer);
-    });
-  };
-  
-  export default router;
+export default router;

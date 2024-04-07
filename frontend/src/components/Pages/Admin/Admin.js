@@ -10,9 +10,14 @@ export default function Admin() {
             Foods
         </Link>
     </div>
+    <div className={classes.calls}>
+        <Link to='/callsadmin'>
+            Calls
+        </Link>
+    </div>
     <div className={classes.emp}>
-        <Link to='/empadmin'>
-            Employees
+        <Link to='/ordersadmin'>
+            Orders
         </Link>
     </div>
     </div>

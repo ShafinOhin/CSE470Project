@@ -13,11 +13,10 @@ import classes from './checkoutPage.module.css';
 import OrderItemsList from '../../../components/OrderItemsList/OrderItemsList';
 
 export default function CheckoutPage() {
-  const { cart } = useCart();
+  const { cart, clearCart } = useCart();
   const { user } = useAuth();
   const navigate = useNavigate();
   const [order, setOrder] = useState({ ...cart });
-
   const {
     register,
     formState: { errors },
@@ -26,7 +25,8 @@ export default function CheckoutPage() {
 
   const submit = async data => {
     await createOrder({ ...order, name: data.name});
-    navigate('/payment');
+    clearCart();
+    navigate('/track');
   };
 
   return (

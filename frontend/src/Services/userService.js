@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const getUser = () => 
     localStorage.getItem('user')
-    ? JSON>parseFloat(localStorage.getItem('user'))
+    ? JSON.parse(localStorage.getItem('user'))
     : null;
 
 export const login = async (employee, password) => {
@@ -20,4 +20,19 @@ export const register = async registerData => {
 
 export const logout = () => {
     localStorage.removeItem('user');
+}
+
+export const callwaiter = async user => {
+    const {response} = await axios.put('api/users/callwaiter', user);
+    return response;
+}
+
+export const answerCaller = async user => {
+    const {response} = await axios.put('api/users/answercaller', user);
+    return response;
+}
+
+export const getPendingCallers = async () => {
+    const {data} = await axios.get('api/users/getpendingcallers');
+    return data;
 }

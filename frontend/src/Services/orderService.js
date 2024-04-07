@@ -2,15 +2,29 @@ import axios from 'axios';
 
 export const createOrder = async order => {
   try {
+    
     const { data } = axios.post('/api/orders/create', order);
+
     return data;
-  } catch (error) {}
+  } catch (error) {
+
+  }
 };
 
 export const getNewOrderForCurrentUser = async () => {
   const { data } = await axios.get('/api/orders/newOrderForCurrentUser');
   return data;
 };
+
+export const approveOrder = async orderId => {
+  const {approved} = await axios.put('/api/orders/approveorder/' + orderId);
+  return approved;
+}
+
+export const serveItem = async (orderId, itemFoodId) => {
+  const {approved} = await axios.put('/api/orders/serveitem/' + orderId + '/' + itemFoodId);
+  return approved;
+}
 
 export const pay = async paymentId => {
   try {
@@ -19,8 +33,18 @@ export const pay = async paymentId => {
   } catch (error) {}
 };
 
+export const trackOrder = async () => {
+  const { data } = await axios.get('/api/orders/track');
+  return data;
+};
+
+export const refreshOrder = async () => {
+  const { data } = await axios.get('/api/orders/refresh');
+  return data;
+};
+
 export const trackOrderById = async orderId => {
-  const { data } = await axios.get('/api/orders/track/' + orderId);
+  const { data } = await axios.get('/api/orders/trackbyid' + orderId);
   return data;
 };
 
