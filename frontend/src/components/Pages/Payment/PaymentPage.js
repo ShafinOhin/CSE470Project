@@ -10,6 +10,7 @@ import { useForm } from 'react-hook-form';
 import Button from '../../Button/Button';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../../Hooks/useAuth';
+import { toast } from 'react-toastify'
 
 export default function PaymentPage() {
   const [order, setOrder] = useState();
@@ -21,6 +22,7 @@ export default function PaymentPage() {
 
   const submit = async data => {
     await completeOrder(user);
+    toast.success("Order Completed Succesfully");
     navigate('/');
   };
 

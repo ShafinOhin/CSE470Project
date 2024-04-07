@@ -56,7 +56,7 @@ export const refreshOrder = async () => {
 };
 
 export const trackOrderById = async orderId => {
-  const { data } = await axios.get('/api/orders/trackbyid' + orderId);
+  const { data } = await axios.get(`/api/orders/trackbyid/${orderId}`);
   return data;
 };
 
