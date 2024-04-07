@@ -20,6 +20,7 @@
     padding: 10px;
     margin-bottom: 10px;
     border: solid 1px purple;
+    justify-content: space-between;
   }
   
   .list li img {
@@ -42,5 +43,21 @@
 
   .rembut:hover{
     background-color: red;
+    cursor: pointer;
+  }
+
+  .placeOrderbutton {
+    padding: 1rem;
+    color: white;
+    background: #e72929;
+    display: block;
+    width: 99%;
+    border-radius: 1rem;
+    text-align: center;
+    justify-self: center;
+  }
+
+  .placeOrderbutton:hover {
+    opacity: 0.8;
     cursor: pointer;
   }

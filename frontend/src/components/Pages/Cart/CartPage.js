@@ -1,6 +1,8 @@
 import React from 'react'
 import classes from './CartPage.module.css'
 import { useCart } from '../../../Hooks/useCart';
+import { Button } from '../../Button/Button';
+import { Link } from 'react-router-dom';
 
 export default function CartPage() {
     const {cart, removeitem, changequant} =useCart();
@@ -54,6 +56,9 @@ export default function CartPage() {
                 </ul>
                 <div classname={classes.total}>
                     Total Price: Tk.{cart.totalPrice}
+                </div>
+                <div className="placeOrderButton">
+                    <Link to="/checkout"> Place Order </Link>
                 </div>
             </div>
 

@@ -67,7 +67,7 @@ export default function Provider({ children }) {
         const updatedItems = cartItems.map(item => (item.food.id === cartItem.food.id ? changes : item));
 
         setCartItems(updatedItems);
-        toast.success("Cart Updated")
+        toast.success(<Link to='/cart'>Cart Updated</Link>)
     };
 
     const addmore = food => {
