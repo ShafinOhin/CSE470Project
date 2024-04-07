@@ -1,17 +1,16 @@
 import React from 'react';
-import { useCart } from '../../hooks/useCart';
-import { useAuth } from '../../hooks/useAuth';
+import { useCart } from '../../../Hooks/useCart';
+import { useAuth } from '../../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
-import { createOrder } from '../../services/orderService';
+import Title from '../../../components/Title/Title';
+import Input from '../../Input/Input';
+import Button from '../../../components/Button/Button';
+import { createOrder } from '../../../Services/orderService';
 import classes from './checkoutPage.module.css';
-import Title from '../../components/Title/Title';
-import Input from '../../components/Input/Input';
-import Button from '../../components/Button/Button';
-import OrderItemsList from '../../components/OrderItemsList/OrderItemsList';
-
+import OrderItemsList from '../../../components/OrderItemsList/OrderItemsList';
 
 export default function CheckoutPage() {
   const { cart } = useCart();
@@ -26,7 +25,7 @@ export default function CheckoutPage() {
   } = useForm();
 
   const submit = async data => {
-    await createOrder({ ...order, name: data.name });
+    await createOrder({ ...order, name: data.name});
     navigate('/payment');
   };
 
@@ -34,11 +33,11 @@ export default function CheckoutPage() {
     <>
       <form onSubmit={handleSubmit(submit)} className={classes.container}>
         <div className={classes.content}>
-          <Title title="Order Form" fontSize="1.6rem" />
+        <h1>Confirm Order</h1>
           <div className={classes.inputs}>
             <Input
               defaultValue={user.name}
-              label="Name"
+              //label="Name"
               {...register('name')}
               error={errors.name}
             />
@@ -50,9 +49,10 @@ export default function CheckoutPage() {
           <div className={classes.buttons}>
             <Button
               type="submit"
-              text="Go To Payment"
+              text="Place Order"
               width="100%"
               height="3rem"
+              backgroundColor= "#4c0179"
             />
           </div>
         </div>

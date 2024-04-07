@@ -1,14 +1,14 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
-import Home from './Pages/Home/Home';
-import CartPage from './Pages/Cart/CartPage';
-import Login from './Pages/Login/Login';
-import RegisterPage from './Pages/Register/registerPage';
-import AuthRoute from './Authroute/AuthRoute';
-import Admin from './Pages/Admin/Admin';
-import FoodAdmin from './Pages/FoodAdmin/FoodAdmin';
-import Edit from './Pages/Edit/Edit';
-import CheckoutPage from './Pages/Checkout/CheckoutPage';
+import Home from './components/Pages/Home/Home';
+import CartPage from './components/Pages/Cart/CartPage';
+import Login from './components/Pages/Login/Login';
+import RegisterPage from './components/Pages/Register/registerPage';
+import AuthRoute from './components/Authroute/AuthRoute';
+import Admin from './components/Pages/Admin/Admin';
+import FoodAdmin from './components/Pages/FoodAdmin/FoodAdmin';
+import Edit from './components/Pages/Edit/Edit';
+import CheckoutPage from './components/Pages/Checkout/CheckoutPage';
 
 export default function AppRoutes() {
   return (

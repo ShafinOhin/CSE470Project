@@ -54,7 +54,7 @@ export default function CartPage() {
                     ))}
                     
                 </ul>
-                <div classname={classes.total}>
+                <div className={classes.total}>
                     Total Price: Tk.{cart.totalPrice}
                 </div>
                 <div className="placeOrderButton">
